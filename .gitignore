@@ -1,0 +1,18 @@
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+*.tfvars
+crash.log
+
+# Secrets
+*.key
+*.pem
+.env
+.vault_pass
+kubeconfig*
+
+# Divers
+*.log
+__pycache__/
+node_modules/
