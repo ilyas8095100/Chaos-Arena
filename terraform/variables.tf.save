@@ -1,0 +1,34 @@
+variable "proxmox_node" {
+  description = "Nom du noeud Proxmox"
+  type        = string
+  default     = "pve"
+}
+
+variable "template_id" {
+  description = "ID du modele cloud-init a cloner"
+  type        = number
+  default     = 9000
+}
+
+variable "gateway" {
+  description = "Passerelle et DNS du VLAN 30 (pfSense)"
+  type        = string
+  default     = "10.10.30.1"
+}
+
+variable "ssh_public_key_path" {
+  description = "Clé publique SSH injectée dans les VM"
+  type        = string
+  default     = "~/.ssh/id_ed25519.pub"
+}
+
+variable "nodes" {
+  description = "Les VM du cluster k3s"
+  type = map(object({
+    vm_id  = number
+    ip     = string
+    role   = string
+    cores  = number
+    memory = number
+  }))
+  
